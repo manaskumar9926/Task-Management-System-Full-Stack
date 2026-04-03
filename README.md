@@ -1,39 +1,68 @@
-# 🚀 Task Management API (Backend)
+# 🚀 Task Management System (Full Stack)
 
-A secure and scalable REST API for managing tasks. Built with **Node.js, Express, TypeScript, and Prisma ORM (PostgreSQL)**.
+A modern, scalable, and secure **Full Stack Task Management System** built using **Next.js, Node.js, Express, TypeScript, and Prisma (PostgreSQL)**.
 
 ---
 
-## ✨ Features
+## 🌐 Live Demo
 
-* 🔐 **Authentication**
+* 🎨 Frontend: Coming Soon
+* ⚙️ Backend API: Coming Soon
 
-  * JWT-based authentication (Access & Refresh tokens)
-  * Secure password hashing using bcrypt
-  * Refresh tokens stored in database
+---
 
-* 📝 **Task Management**
+## 📦 Project Overview
 
-  * Create, update, delete tasks
-  * Pagination support
-  * Search (title & description)
-  * Filter by completion status
+This project is a complete full-stack application consisting of:
 
-* 🛡️ **Security**
+* **Frontend** → Built with Next.js (App Router) for a fast and responsive UI
+* **Backend** → REST API built with Node.js, Express, and TypeScript
+* **Database** → PostgreSQL with Prisma ORM
+* **Authentication** → JWT-based (Access + Refresh tokens)
 
-  * Protected routes using middleware
-  * Input validation
-  * Environment-based secrets
+---
 
-* 🗄️ **Database**
+## ✨ Key Features
 
-  * PostgreSQL with Prisma ORM
-  * Relational schema (User ↔ Tasks)
-  * Auto timestamps
+### 🔐 Authentication & Security
+
+* JWT-based authentication (Access & Refresh tokens)
+* Password hashing with bcrypt
+* Refresh token stored in database
+* Protected API routes using middleware
+
+---
+
+### 📝 Task Management
+
+* Create, update, delete tasks
+* Toggle task completion
+* Pagination support
+* Search & filtering
+
+---
+
+### 🎨 Modern UI/UX
+
+* Fully responsive design
+* Smooth animations (Framer Motion)
+* Clean and minimal interface
+* Toast notifications
 
 ---
 
 ## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js (App Router)
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Axios
+
+### Backend
 
 * Node.js
 * Express.js
@@ -44,175 +73,58 @@ A secure and scalable REST API for managing tasks. Built with **Node.js, Express
 
 ---
 
-## 📦 Prerequisites
+## 📁 Project Structure
 
-* Node.js (v18+)
-* PostgreSQL database
+```text
+task-management-system/
+├── backend/      # Node.js Express API
+├── frontend/     # Next.js Application
+└── README.md
+```
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1. Install Dependencies
+### 1. Clone Repository
 
 ```bash
+git clone https://github.com/manaskumar9926/Task-Management-System-Full-Stack.git
+cd Task-Management-System-Full-Stack
+```
+
+---
+
+### 2. Backend Setup
+
+```bash
+cd backend
 npm install
-```
 
----
-
-### 2. Environment Variables
-
-Create a `.env` file:
-
-```env
-DATABASE_URL=your_postgres_url
-JWT_SECRET=your_access_secret
-JWT_REFRESH_SECRET=your_refresh_secret
-PORT=3000
-```
-
----
-
-### 3. Database Setup
-
-```bash
+# Configure environment variables (.env)
 npx prisma db push
 npx prisma generate
-```
 
----
-
-### 4. Run Server
-
-**Development**
-
-```bash
 npm run dev
 ```
 
-**Production**
+---
+
+### 3. Frontend Setup
 
 ```bash
-npm run build
-npm start
-```
-
----
-
-## 📡 API Endpoints
-
-### 🔐 Auth Routes
-
-| Method | Endpoint       | Description   |
-| ------ | -------------- | ------------- |
-| POST   | /auth/register | Register user |
-| POST   | /auth/login    | Login user    |
-| POST   | /auth/refresh  | Refresh token |
-| POST   | /auth/logout   | Logout        |
-
----
-
-### 📝 Task Routes *(Protected)*
-
-> Requires: `Authorization: Bearer <token>`
-
-| Method | Endpoint          | Description   |
-| ------ | ----------------- | ------------- |
-| GET    | /tasks            | Get all tasks |
-| POST   | /tasks            | Create task   |
-| PATCH  | /tasks/:id        | Update task   |
-| DELETE | /tasks/:id        | Delete task   |
-| PATCH  | /tasks/:id/toggle | Toggle status |
-
----
-
-## 🔍 Query Parameters
-
-* `page` → Page number
-* `limit` → Items per page
-* `search` → Search keyword
-* `completed` → true / false
-
----
-
-## 🧪 Testing
-
-Use:
-
-* Postman
-* Thunder Client
-
----
-# 🎨 Task Management Frontend (Next.js)
-
-A modern, fast, and responsive frontend built with **Next.js (App Router), TypeScript, and Tailwind CSS**.
-
----
-
-## ✨ Features
-
-* 🔐 **Authentication UI**
-
-  * Login & Register pages
-  * JWT integration
-  * Protected routes
-
-* 📝 **Task Management**
-
-  * Create, update, delete tasks
-  * Toggle task completion
-  * Search & filter
-  * Pagination
-
-* 🎨 **Modern UI/UX**
-
-  * Fully responsive design
-  * Smooth animations (Framer Motion)
-  * Toast notifications
-  * Clean UI
-
----
-
-## 🛠️ Tech Stack
-
-* Next.js (App Router)
-* React
-* TypeScript
-* Tailwind CSS
-* Framer Motion
-* Axios
-* Lucide React
-
----
-
-## 📂 Project Structure
-
-```text
-frontend/
-├── app/
-├── components/
-├── hooks/
-├── lib/
-├── types/
-└── public/
-```
-
----
-
-## ⚙️ Setup Instructions
-
-### 1. Install Dependencies
-
-```bash
+cd ../frontend
 npm install
+
+# Configure .env.local
+npm run dev
 ```
 
 ---
 
-### 2. Environment Variables
+## 🔗 API & Frontend Connection
 
-Create `.env.local`:
+Frontend connects to backend via:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3000
@@ -220,32 +132,26 @@ NEXT_PUBLIC_API_URL=http://localhost:3000
 
 ---
 
-### 3. Run App
-
-```bash
-npm run dev
-```
-
-👉 http://localhost:3000
-
----
-
-## 🔗 API Integration
-
-Make sure backend is running:
-
-```bash
-http://localhost:3000
-```
-
----
-
 ## 🔐 Authentication Flow
 
-1. Login → get access token
-2. Store token
-3. Send token in API headers
-4. Refresh token when expired
+1. User logs in → receives access & refresh token
+2. Access token used for API requests
+3. Refresh token used to generate new access token
+4. Logout clears session from database
+
+---
+
+## 🚀 Deployment
+
+* Frontend → Vercel
+* Backend → Render / Railway
+
+---
+
+## 🧪 Testing
+
+* Postman
+* Thunder Client
 
 ---
 
@@ -253,3 +159,11 @@ http://localhost:3000
 
 **Manas Kumar**
 🌐 https://www.ermanas.in
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+---
